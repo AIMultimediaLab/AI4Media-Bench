@@ -6,7 +6,6 @@ solve many common problems in the arena of data-oriented research through its on
 competitions and benchmarks.
 
 
-
 ## Documentation
 
 - [AI4MediaBench-Docs](https://github.com/AIMultimediaLab/AI4MediaBench-AIMultimediaLab)
@@ -18,7 +17,7 @@ If you wish to configure your own instance of AI4MediaBench platform, here are t
 
 
 ```
-$ cp .env_sample .env
+$ touch .env // create the .env file
 $ docker-compose up -d
 $ docker-compose exec django ./manage.py migrate
 $ docker-compose exec django ./manage.py generate_data
@@ -28,11 +27,6 @@ $ docker-compose exec django ./manage.py collectstatic --noinput
 You can now login as username "admin" with password "admin" at http://localhost:8000
 
 If you ever need to reset the database, use the script `./reset_db.sh`
-
-
-## Create certs:
-
-sudo certbot certonly --manual --preferred-challenges=dns -d '*.aimultimedialab.ro'
  
 ## License
 This software is released under the Apache License 2.0 (the "License"); you may not use the software except in compliance with the License.
