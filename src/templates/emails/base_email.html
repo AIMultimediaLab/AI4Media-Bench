@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        /*
+
+        text: #666666
+        links: #739cb9
+
+        palette medium: #7A8D92
+         palette light: #A6C6D1
+          palette teal: #67B8C7
+        */
+        html, body {
+            font-size: 18px;
+            line-height: 28px;
+            background-color: #f7f7f7;
+            font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        }
+        body {
+            /*padding: 20px;*/
+        }
+        h1 {
+            font-size: 41px;
+            line-height: 71px !important;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #222222;
+            text-rendering: optimizeLegibility;
+            margin-top: 0.2em;
+            margin-bottom: 0.5em;
+            line-height: 1.2125em;
+        }
+        a, a:hover, a:visited, a:active {
+            color: #739cb9;
+        }
+        pre {
+            font-family: sans-serif;
+        }
+
+        #header {
+            padding-bottom: 20px;
+        }
+        #signature {
+            padding-top: 20px;
+        }
+        #footer {
+            margin-top: 100px;
+            color: #ccc;
+            font-size: 11px;
+            line-height: 18px;
+        }
+        blockquote {
+            color: #555555;
+            max-width: 43%;
+            background: #f5f5f9;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            quotes: "\201C""\201D""\2018""\2019";
+        }
+        blockquote:before {
+            color: #ccc;
+            content: open-quote;
+            font-size: 4em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -0.4em;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>Hello{% if user %} {{ user.username }}{% endif %},</h1>
+</div>
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% if not mass_email %}
+<div id="signature">
+    <p>Thanks,</p>
+
+    <p>AI4MediaBench Team</p>
+</div>
+{% endif %}
+
+<div id="footer">
+    <p><a href="http://{{ site.domain }}">Unsubscribe or manage notification settings</a> | <a href="https://github.com/AIMultimediaLab/AI4MediaBench-AIMultimediaLab/blob/main/Privacy-Policy-and-Terms-of-Use.MD">Privacy policy</a></p>
+</div>
+</body>
+</html>

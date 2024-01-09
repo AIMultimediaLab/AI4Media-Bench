@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  compute_worker:
+    command: "/bin/true"
+  minio:
+    restart: "no"
+    command: "/bin/true"
+  createbuckets:
+    entrypoint: "/bin/true"
+    restart: "no"
+    depends_on:
+      minio:
+        condition: service_started
+

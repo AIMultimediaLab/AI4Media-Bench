@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load i18n %}
+
+{% block top_div_extra_class %}jumbotron{% endblock %}
+
+{% block top_div_extra_content %}
+
+{% endblock %}
+
+{% block content %}
+
+    <!-- Annoucement  -->
+    {% if announcement %}
+    <div style="margin:auto;" class="segment-container ui segment full-width">
+        <div class="ui header" style="background-color: #04164d!important;color: white!important;">
+            <p>Announcement</p>
+        </div>
+        <div class="container-content">
+            <div class="center aligned column">
+                {{ announcement | safe }}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="home-wrap">
+        <front-page-competitions></front-page-competitions>
+
+        <!-- Action Section -->
+        <div id="action-container" class="segment-container ui segment full-width">
+            <div class="ui header" style="background-color: #04164d!important;color: white!important;">
+                Get Started
+            </div>
+            <div class="container-content">
+                <div class="center aligned column">
+                    <h3 class="ui icon header">
+                        <i class="trophy icon"></i>
+                        Participate
+                    </h3>
+                    <div>
+                        <p>Find benchmarks that pique your interest! A benchmark allows you to test new algorithms against reference datasets OR (inverted benchmark) submit challenging data to reference algorithms.</p>
+                    </div>
+                </div>
+                <div class="center aligned column">
+                    <h3 class="ui icon header">
+                        <i class="users icon"></i>
+                        Organize
+                    </h3>
+                    <div>
+                        <p>Organize a benchmark on AI4MediaBench. Start with our <a href="https://github.com/AIMultimediaLab/AI4MediaBench-AIMultimediaLab">tutorials</a>.</p>
+                    </div>
+                </div>
+                <div class="center aligned column">
+                    <h3 class="ui icon header">
+                        <i class="bi bi-envelope-paper-fill icon"></i>
+                        Customer Support
+                    </h3>
+                    <div>
+                        <p>Experiencing problems with the platform? Kindly submit a ticket through our customer support system by visiting <a href="https://support.aimultimedialab.ro/open/">https://support.aimultimedialab.ro/open/</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats section -->
+        <div class="ui five column grid" id="general-stats">
+            {% for stat in general_stats %}
+                <div class="column">
+                    <div class="ui statistic">
+                        <div class="value">
+                            {{ stat.count }}
+                        </div>
+                        <div class="label">
+                            {{ stat.label }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- About Section -->
+        <div id="about-container" class="segment-container ui segment full-width">
+            <div class="ui header" style="background-color: #04164d!important;color: white!important;">
+                About
+            </div>
+            <div class="container-content">
+                <div class="ui middle stackable grid container">
+                    <div class="eight wide left aligned column">
+                        <div class="row column-bottom-padding">
+                            <h3 class="ui color-header header">What is AI4Media?</h3>
+                            <div class="ui divider"></div>
+                            <p><a href="https://www.ai4media.eu/">AI4Media</a> is a 4-year-long project funded under the
+                                European Union’s Horizon 2020 research and innovation programme, the project aspires to
+                                become a Centre of Excellence engaging a wide network of researchers across Europe and
+                                beyond, focusing on delivering the next generation of core AI advances and training to
+                                serve the Media sector, while ensuring that the European values of ethical and trustworthy
+                                AI are embedded in future AI deployments.</p>
+                            <p> AI4Media is composed by 30 leading partners in the areas of AI and media (9 Universities,
+                                9 Research Centres, 12 industrial organisations) and a large pool of associate members,
+                                that will establish the networking infrastructure to bring together the currently fragmented
+                                European AI landscape in the field of media, and foster deeper and long-running interactions
+                                between academia and industry.
+                            </p>
+                            <p>Furthermore, the project envisages a close collaboration with AI4EU platform in the form of
+                                integrating the project’s outputs such as modules, services and algorithms into the AI4EU
+                                platform, as well as, establish interactions with the AI4EU network. Moreover, AI4Media
+                                will also seek to maximize interactions with relevant Digital Innovation Hubs (DIH) across
+                                Europe and other national initiatives.
+                            </p>
+                        </div>
+
+                        <div class="row column-bottom-padding">
+                            <h3 class="ui color-header header">What is AI4MediaBench?</h3>
+                            <div class="ui divider"></div>
+                            <p>AI4MediaBench is a powerful framework for running competitions using result or code submissions.
+                                You can participate in an existing competition or host your own competition for free.
+                            </p>
+                            <p>Most competitions hosted on AI4MediaBench are machine learning (data science) competitions,
+                                but it is NOT limited to this application domain.
+                                It can accommodate any problem for which a solution can be provided in the form of a zip
+                                archive containing a number of files to be evaluated quantitatively by a scoring program
+                                (provided by the organizers). The scoring program must return a numeric score, which is
+                                displayed on a leaderboard where the performances of participants are compared.
+                            </p>
+                        </div>
+
+                        <div class="row column-bottom-padding">
+                            <h3 class="ui color-header header">Who is AIMultimediaLab?</h3>
+                            <div class="ui divider"></div>
+                            <p><a href="https://www.aimultimedialab.ro/">AIMultimediaLab</a> is a research lab located
+                                within the <a href="http://campus.pub.ro/">CAMPUS Research Institute</a> of
+                                <a href="https://upb.ro/">National University of Science and Technology Politehnica Bucharest</a>.
+                            </p>
+                            <p> The AI Multimedia Lab has its roots back in 2007 with the creation of the Video Analysis
+                                and Processing Group, Faculty of Electronics, Telecommunications and Information Technology,
+                                evolving in the current format in 2016. Currently, the lab is specialized in developing
+                                and benchmarking Artificial Intelligence algorithms, e.g., machine learning, deep learning,
+                                information retrieval, for various multimedia applications, such as surveillance & security,
+                                media, medicine, fintech, networking, to mention but a few. The lab was entrusted with various
+                                research grants, both national and international, strategic and research oriented,
+                                for academia and industry.
+                            <p/>
+                        </div>
+                    </div>
+                    <!-- News Section -->
+                    <div class="eight wide center aligned column">
+                        <div class="row news-column-bottom-padding">
+                            <h1 class="ui color-header header">News</h1>
+                        </div>
+                        {% for post in news_posts %}
+                        <div class="row news-column-bottom-padding news">
+                            <span class="news-date">{{post.created_when|date:"M d, Y"}}</span>
+                            <div class="news-heading">
+                                {% if post.link %}
+                                    <a href="{{post.link}}" target="_blank"><h3>{{post.title}}</h3></a>
+                                {% else %}
+                                    <h3 class="news-heading-title">{{post.title}}</h3>
+                                {% endif %}
+                            </div>
+                            <div class="news-body">
+                                {{ post.text | safe }}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block extra_body %}
+    <script>
+        // Prevent buttons from stacking in mobile view
+        $(window).resize(function () {
+            if ($(window).width() < 390) {
+                return $('.pages')
+                    .removeClass('huge')
+                    .addClass('large');
+            }
+            $('.pages')
+                .removeClass('large')
+                .addClass('huge');
+        }).trigger('resize');
+    </script>
+{% endblock %}

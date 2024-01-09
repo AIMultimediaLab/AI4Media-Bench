@@ -1,0 +1,5 @@
+#logo img {
+    /* Make the logo same height as previous one, things line up nicely
+    this way */
+    height: 30px;
+}

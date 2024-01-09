@@ -1,0 +1,17 @@
+Hello{% if user %} {{ user.username }}{% endif %},
+{% block title %}{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% if not mass_email %}
+Thanks,
+
+AI4MediaBench Team
+{% endif %}
+
+
+Unsubscribe or manage notification settings:
+http://{{ site.domain }}
+
+Privacy policy:
+https://github.com/AIMultimediaLab/AI4MediaBench-AIMultimediaLab/blob/main/Privacy-Policy-and-Terms-of-Use.MD

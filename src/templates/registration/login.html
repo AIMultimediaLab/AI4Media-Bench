@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="sixteen wide mobile six wide computer centered column">
+    <h2 class="ui blue centered header">
+        Login
+    </h2>
+    <div class="ui stacked segment">
+        <form class="ui form" method="POST">
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+            <div class="ui red message">
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+            {% if form.username.errors %}
+            <div class="ui red message">
+                {{ form.username.errors }}
+            </div>
+            {% endif %}
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="user icon"></i>
+                    <input type="text"
+                           name="username"
+                           placeholder="username or email"
+                           id="id_username"
+                           value="{{ form.username.value|default:''}}"
+                           maxlength="{{ form.username.field.max_length }}"
+                           autofocus
+                           required>
+                </div>
+            </div>
+
+            {% if form.password.errors %}
+            <div class="ui red message">
+                {{ form.password.errors }}
+            </div>
+            {% endif %}
+            <div class="field">
+                <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    <input type="password"
+                           name="password"
+                           placeholder="password"
+                           id="id_password"
+                           value="{{ form.password.value|default:''}}"
+                           maxlength="{{ form.password.field.max_length }}"
+                           required>
+                </div>
+            </div>
+            <button class="ui fluid blue submit button" type="submit">Log In</button>
+            <div class="ui divider"></div>
+            <p>New to us? <a href="{% url 'accounts:signup' %}">Sign Up</a></p>
+            <p><a href="{% url 'accounts:password_reset' %}">Forgot your password?</a></p>
+
+            <div class="ui error message"></div>
+        </form>
+    </div>
+</div>
+{% endblock %}
